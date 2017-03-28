@@ -9,20 +9,26 @@
     var Validation = App.Validation;
     var CheckList = App.CheckList;
 
-
     var myTruck = new Truck('ncc-1701', new DataStore());
     window.myTruck = myTruck;
+
     var checkList = new CheckList(CHECKLIST_SELECTOR);
     checkList.addClickHandler(myTruck.deliverOrder.bind(myTruck));
+
     var formHandler = new FormHandler(FORM_SELECTOR);
 
-    formHandler.addSubmitHandler( //myTruck.createOrder.bind(myTruck)
-        function(data) {
-            myTruck.createOrder.call(myTruck, data);
-            checkList.addRow.call(checkList, data);
-        });
+    formHandler.addSubmitHandler(function(data) {
+        console.log(formHandler);
+        myTruck.createOrder.call(myTruck, data);
+        checkList.addRow.call(checkList, data);
+    });
+
+    console.log(formHandler);
+
 
     formHandler.addInputHandler(Validation.isCompanyEmail);
-    formHandler.addDecafStengthInputHandler(Validation.isDecafStength);
-//    console.log(formHandler);
+    formHandler.addInputValidCoffeeOrderHandler(Validation.isValidCoffeeOrder);
+    formHandler.addInputValidCoffeeStrengthHandler(Validation.isValidCoffeeOrder);
+
+
 })(window);

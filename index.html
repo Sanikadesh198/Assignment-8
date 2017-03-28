@@ -6,9 +6,9 @@
     <title>coffeerun</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
     <style>
-      form :focus:required:invalid{
-        border-color:#a94442;
-      }
+        form :focus:required:invalid {
+            border-color: #a94442;
+        }
     </style>
 </head>
 
@@ -17,41 +17,44 @@
         <h1>CoffeeRun</h1>
     </header>
     <section>
+
         <div class="panel panel-default">
             <div class="panel-body">
                 <form id="main-form" data-coffee-order="form">
+
                     <div class="form-group">
-                        <label for="coffeeOrder" data-coffee-order="coffeeOrder">Coffee Order</label>
+                        <label for="coffeeOrder">Coffee Order</label>
                         <input class="form-control" name="coffee" id="coffeeOrder" autofocus required pattern="[a-zA-Z\s]+" />
                     </div>
+
                     <div class="form-group">
                         <label for="emailInput">Email</label>
-                        <input class="form-control" type="email" name="emailAddress" id="emailInput" value="" placeholder="dr@who.com" required />
+                        <input class="form-control" type="email" name="emailAddress" id="emailInput" value="" placeholder="dr@who.com" required/>
                     </div>
+
                     <div class="radio">
                         <label>
                         <input type="radio" name="size" value="short">
                         Short
                       </label>
                     </div>
+
                     <div class="radio">
                         <label>
                         <input type="radio" name="size" value="tall" checked>
                         Tall
                       </label>
                     </div>
+
                     <div class="radio">
                         <label>
                         <input type="radio" name="size" value="grande">
                         Grande
                       </label>
                     </div>
-                    <div class="radio">
-                        <label>
-                        <input type="radio" name="size" value="coffeezilla">
-                        Coffee Zilla
-                      </label>
-                    </div>
+
+
+
                     <div class="form-group">
                         <label for="flavorShot">Flavor Shot</label>
                         <select id="flavorshot" class="form-control" name="flavor">
@@ -63,29 +66,31 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="strengthLevel" data-coffee-order="strength">Caffeine Strength</label>
+                        <label id="strength-range" for="strengthLevel" style="color:green">Caffeine percentage: 30</label>
                         <input name="strength" id="strengthLevel" type="range" value="30">
                     </div>
 
-                    <button type="submit" class="btn btn-default">Submit Order</button>
-                    <button type="reset" class="btn btn-default">Reset Order</button>
+                    <button type="submit" class="btn btn-default">Submit</button>
+                    <button type="reset" class="btn btn-default">Reset</button>
 
                 </form>
             </div>
         </div>
-<div class="panel panel-default">
-  <div class="panel-body">
-    <h4>Pending Orders:</h4>
-    <div data-coffee-order="checklist">
 
-    </div>
-  </div>
-</div>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <h4>Pending Orders:</h4>
+                <div data-coffee-order="checklist">
+                </div>
+            </div>
+        </div>
+
+        
     </section>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js" charset="utf-8"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
-<script src="scripts/validation.js" charset="utf-8"></script>
-<script src="scripts/checklist.js" charset="utf-8"></script>
+    <script src="scripts/validation.js" charset="utf-8"></script>
+    <script src="scripts/checklist.js" charset="utf-8"></script>
     <script src="scripts/formhandler.js" charset="utf-8"></script>
     <script src="scripts/datastore.js" charset="utf-8"></script>
     <script src="scripts/truck.js" charset="utf-8"></script>
