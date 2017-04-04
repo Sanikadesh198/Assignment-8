@@ -18,6 +18,41 @@ var coffee;
     }
 
     FormHandler.prototype.addSubmitHandler = function(fn) {
+        /*    try {
+                myTruck.createOrder(function(error) {
+                    if (error) {
+                        throw new Exception(error)
+                    } else {
+                        try {
+                            saveOnServer(function(error) {
+                                if (error) {
+                                    throw new Exception({
+                                        message: 'server error'
+                                    });
+                                } else {
+                                    try {
+                                        checkList.addRow();
+                                    } catch (e2) {
+                                        handleDomError(e2);
+                                    }
+                                }
+                            })
+                        } catch (e) {
+                            handleServerError(e, function() {
+                                // Try adding the row again
+                                try {
+                                    checkList.addRow();
+                                } catch (e3) {
+                                    handleDomError(e3);
+                                }
+                            });
+                        }
+                    }
+                });
+            } catch (e) {
+                alert('Something bad happened');
+            }
+        });*/
         console.log('Setting submit handler for form');
         this.$formElement.on('submit', function(event) {
             event.preventDefault();
@@ -29,10 +64,11 @@ var coffee;
             });
             console.log(data);
 
-            fn(data);
-            this.reset();
-            this.elements[0].focus();
-
+            fn(data)
+                .then(function() {
+                    this.reset();
+                    this.elements[0].focus();
+                }.bind(this));
         });
     };
 
